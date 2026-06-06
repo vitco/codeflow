@@ -12,7 +12,7 @@ test('index.html contains 3d-force-graph dependency', () => {
 });
 
 test('index.html includes graph3d selector and container element', () => {
-  assert.ok(html.includes("vizType:'graph3d'"), '3D graph option is missing in vizType selector actions');
+  assert.ok(html.includes("value:'graph3d'"), '3D graph option is missing in vizType selector dropdown');
   assert.ok(html.includes("vizType==='graph3d'"), 'vizType active class check is missing');
   assert.ok(html.includes('ref:graph3dRef'), '3D graph container div with ref:graph3dRef is missing');
 });

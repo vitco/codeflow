@@ -48,7 +48,7 @@ body{font-family:'JetBrains Mono',monospace;background:var(--bg0);color:var(--t0
 .icon-xl{width:20px;height:20px}
 .icon-xxl{width:48px;height:48px}
 .status-dot{display:inline-block;width:8px;height:8px;border-radius:999px;flex-shrink:0}
-.repo-input-group{display:flex;gap:8px;flex:1;max-width:860px;min-width:0}
+.repo-input-group{display:flex;gap:8px;flex:1;min-width:0}
 .repo-input-group>*{min-width:0}
 .repo-input{flex:1;padding:6px 12px;background:var(--bg0);border:1px solid var(--border);border-radius:6px;color:var(--t0);font-family:inherit;font-size:11px;min-width:0}
 .repo-input-group>.repo-input:first-child{min-width:220px}
@@ -338,10 +338,11 @@ body{font-family:'JetBrains Mono',monospace;background:var(--bg0);color:var(--t0
 .viz-tab{padding:8px 12px;border:none;background:transparent;color:var(--t2);font-size:10px;font-weight:600;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:6px}
 .viz-tab:hover{background:var(--bg3);color:var(--t1)}
 .viz-tab.active{background:var(--acc);color:var(--bg0)}
-.viz-selector{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:4px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:4px;z-index:50}
-.viz-selector-btn{padding:6px 12px;border:none;background:transparent;color:var(--t2);font-size:9px;font-weight:600;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:4px}
-.viz-selector-btn:hover{background:var(--bg3);color:var(--t0)}
-.viz-selector-btn.active{background:var(--accbg);color:var(--acc)}
+.viz-selector{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;z-index:50}
+.viz-select{padding:7px 30px 7px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;color:var(--t0);font-family:inherit;font-size:11px;font-weight:600;cursor:pointer;min-width:150px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b8b95' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;text-align:center;text-align-last:center}
+.viz-select:hover{border-color:var(--acc);color:var(--acc)}
+.viz-select:focus{outline:none;border-color:var(--acc)}
+.viz-select option{background:var(--bg1);color:var(--t0);font-weight:500;text-align:left}
 .treemap-tooltip{position:absolute;padding:8px 12px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-size:10px;pointer-events:none;z-index:100;max-width:200px}
 .treemap-tooltip-title{font-weight:600;color:var(--t0);margin-bottom:4px}
 .treemap-tooltip-stat{color:var(--t2);display:flex;justify-content:space-between;gap:12px}
@@ -350,12 +351,12 @@ body{font-family:'JetBrains Mono',monospace;background:var(--bg0);color:var(--t0
 .matrix-label-col{font-size:8px;color:var(--t2);padding:4px 4px;width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .heatmap-legend{position:absolute;bottom:60px;right:20px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:9px}
 .heatmap-gradient{width:100px;height:8px;border-radius:4px;margin:6px 0;background:linear-gradient(90deg,var(--bg3),var(--acc))}
-.architecture-view{width:100%;height:100%;overflow:auto;padding:16px 24px 24px;background:var(--bg0)}
-.architecture-shell{min-width:900px;min-height:600px;background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:24px}
+.architecture-view{width:100%;height:100%;overflow:hidden;background:var(--bg0);display:flex;flex-direction:column}
+.architecture-shell{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;background:transparent;border:none;border-radius:0;padding:0}
 .architecture-summary-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .architecture-chip{padding:6px 10px;background:var(--bg0);border:1px solid var(--border);border-radius:6px;font-size:10px;color:var(--t2)}
 .architecture-chip strong{color:var(--acc)}
-.mermaid-render{width:100%;height:calc(100vh - 210px);min-height:540px;position:relative;overflow:hidden;background:var(--bg0);border:1px solid var(--border2);border-radius:8px;cursor:grab;touch-action:none}
+.mermaid-render{flex:1;width:100%;min-height:0;position:relative;overflow:hidden;background:var(--bg0);cursor:grab;touch-action:none}
 .mermaid-render.dragging{cursor:grabbing}
 .architecture-pan{position:absolute;left:0;top:0;display:block;transform-origin:0 0;will-change:transform}
 .architecture-pan svg{display:block;max-width:none;overflow:visible}
@@ -453,7 +454,7 @@ body{font-family:'JetBrains Mono',monospace;background:var(--bg0);color:var(--t0
 .auth-select:focus{outline:none;border-color:var(--acc)}
 .auth-select:hover{border-color:var(--acc)}
 .auth-select option{background:var(--bg1);color:var(--t0);padding:8px}
-.auth-inputs{display:flex;gap:6px;align-items:center}
+.auth-inputs{display:flex;gap:6px;align-items:center;flex-shrink:0}
 .auth-inputs .repo-input{transition:all 0.2s ease}
 .private-key-btn{padding:6px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--t1);font-family:inherit;font-size:10px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:4px}
 .private-key-btn:hover{background:var(--bg4);border-color:var(--acc);color:var(--acc)}
@@ -507,8 +508,7 @@ body{height:100dvh;min-height:100dvh}
 .resize-handle{display:none}
 .mobile-panel-header{display:flex;align-items:center;justify-content:space-between;padding:12px;border-bottom:1px solid var(--border);background:var(--bg2)}
 .sidebar-scroll,.panel-content{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
-.viz-selector{top:12px;left:12px;right:12px;transform:none;overflow-x:auto;justify-content:flex-start;padding:6px}
-.viz-selector-btn{flex:0 0 auto;min-height:34px;font-size:10px}
+.viz-selector{top:12px;left:50%;right:auto;transform:translateX(-50%);justify-content:center;padding:0}
 .canvas-toolbar{top:68px;left:12px;right:12px;gap:8px;overflow-x:auto;padding-bottom:2px}
 .tool-btn{width:40px;height:40px;font-size:15px;flex:0 0 auto}
 .graph-config{top:120px;left:12px;right:12px;width:auto;max-width:none}
@@ -589,13 +589,12 @@ body{height:100dvh;min-height:100dvh}
 .sidebar-section{padding:10px 12px}
 .sidebar-scroll,.panel-content{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
 .panel-tabs{position:sticky;top:0;z-index:2}
-.viz-selector{top:8px;left:10px;right:10px;transform:none;overflow-x:auto;justify-content:flex-start;padding:4px}
-.viz-selector-btn{flex:0 0 auto;min-height:32px;padding:0 10px;font-size:9px}
+.viz-selector{top:8px;left:50%;right:auto;transform:translateX(-50%);justify-content:center;padding:0}
 .canvas-toolbar{top:auto;bottom:72px;left:10px;right:auto;gap:6px;overflow-x:visible;padding:4px;background:var(--bg1);border:1px solid var(--border);border-radius:10px}
 .tool-btn{width:38px;height:38px;font-size:14px;flex:0 0 auto}
 .graph-config{top:52px;left:10px;right:10px;width:auto;max-width:none}
-.architecture-view{padding:10px}
-.architecture-shell{min-width:760px;padding:16px}
+.architecture-view{padding:0}
+.architecture-shell{min-width:0;padding:0}
 .legend{top:auto;bottom:72px;right:10px;max-width:calc(100vw - 20px)}
 .canvas-info{left:10px;right:10px;bottom:10px;overflow-x:auto;padding-bottom:0}
 .info-chip{white-space:nowrap;flex:0 0 auto}
@@ -5248,7 +5247,7 @@ function App(){
     var _a=useState(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'),theme=_a[0],setTheme=_a[1];
     var _b=useState(''),repoUrl=_b[0],setRepoUrl=_b[1];
     var _c=useState(''),token=_c[0],setToken=_c[1];
-    var _authMethod=useState('pat'),authMethod=_authMethod[0],setAuthMethod=_authMethod[1];// 'none', 'pat', 'github_app'
+    var _authMethod=useState('none'),authMethod=_authMethod[0],setAuthMethod=_authMethod[1];// 'none', 'pat', 'github_app'
     var _appId=useState(''),appId=_appId[0],setAppId=_appId[1];
     var _privateKey=useState(''),privateKey=_privateKey[0],setPrivateKey=_privateKey[1];
     var _showKeyModal=useState(false),showKeyModal=_showKeyModal[0],setShowKeyModal=_showKeyModal[1];
@@ -7898,21 +7897,8 @@ function App(){
         return stats;
     }
     function renderArchitectureView(){
-        var diagram=data&&data.architectureDiagram;
-        var stats=getArchitectureViewStats(diagram,architectureIncludeTests,architectureIncludeBuildOutput);
-        var hidden=diagram&&diagram.hiddenSummary?diagram.hiddenSummary:{build:0,tests:0,fixtures:0,lowSignal:0,total:0};
         return React.createElement('div',{className:'architecture-view'},
             React.createElement('div',{className:'architecture-shell'},
-                React.createElement('div',{className:'architecture-summary-bar'},
-                    React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,diagram?diagram.framework:'Unknown'),' framework'),
-                    diagram&&diagram.profile&&React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,diagram.profile),' profile'),
-                    React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,stats.blocks||0),' blocks'),
-                    hidden.total>0&&React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,hidden.total),' hidden'),
-                    React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,stats.dependencies||0),' dependencies'),
-                    React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,stats.routes||0),' routes'),
-                    React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,stats.apiRoutes||0),' API routes'),
-                    React.createElement('div',{className:'architecture-chip'},React.createElement('strong',null,stats.databaseTouchpoints||0),' DB touchpoints')
-                ),
                 React.createElement('div',{
                     className:'mermaid-render'+(architectureDragging?' dragging':''),
                     ref:architectureRenderRef,
@@ -8086,30 +8072,28 @@ function App(){
                         )
                     )
                 ),
-                React.createElement('button',{className:'top-btn','aria-label':'Edit exclude patterns',onClick:function(){openExcludeModal();},disabled:loading,style:customExcludeCount?{borderColor:'var(--acc)',color:'var(--acc)'}:null},
+                React.createElement('button',{className:'top-btn','aria-label':'Edit exclude patterns',title:'Edit exclude patterns'+(customExcludeCount>0?' ('+customExcludeCount+')':''),onClick:function(){openExcludeModal();},disabled:loading,style:customExcludeCount?{borderColor:'var(--acc)',color:'var(--acc)'}:null},
                     React.createElement(Icon,{name:'ban',size:'m'}),
-                    'Excludes',
-                    customExcludeCount>0?' ('+customExcludeCount+')':''
+                    !data&&'Excludes',
+                    (!data&&customExcludeCount>0)?' ('+customExcludeCount+')':''
                 ),
-                React.createElement('button',{id:'analyze-btn',className:'top-btn primary','aria-label':'Analyze repository',onClick:analyze,disabled:loading||!repoUrl},
+                React.createElement('button',{id:'analyze-btn',className:'top-btn primary','aria-label':'Analyze repository',title:'Analyze repository',onClick:analyze,disabled:loading||!repoUrl},
                     React.createElement(Icon,{name:loading?'activity':'search',size:'m'}),
-                    'Analyze'
+                    !data&&'Analyze'
                 ),
-                React.createElement('button',{className:'top-btn','aria-label':'Open local folder',onClick:function(){openLocalFolder();},disabled:loading},
+                React.createElement('button',{className:'top-btn','aria-label':'Open local folder',title:'Open local folder',onClick:function(){openLocalFolder();},disabled:loading},
                     React.createElement(Icon,{name:'folder',size:'m'}),
-                    'Open Folder'
+                    !data&&'Open Folder'
                 ),
-                React.createElement('button',{className:'top-btn','aria-label':'Open ZIP archive',onClick:function(){openLocalZip();},disabled:loading},
+                React.createElement('button',{className:'top-btn','aria-label':'Open ZIP archive',title:'Open ZIP archive',onClick:function(){openLocalZip();},disabled:loading},
                     React.createElement(Icon,{name:'archive',size:'m'}),
-                    'Open ZIP'
+                    !data&&'Open ZIP'
                 ),
                 data&&React.createElement('button',{className:'refresh-btn','aria-label':'Refresh analysis',onClick:refreshAnalysis,disabled:loading,title:'Refresh Analysis'},
-                    React.createElement(Icon,{name:'refresh',size:'m'}),
-                    'Refresh'
+                    React.createElement(Icon,{name:'refresh',size:'m'})
                 ),
                 data&&React.createElement('button',{className:'reset-btn','aria-label':'Reset analysis',onClick:resetAnalysis,title:'Clear & Reset'},
-                    React.createElement(Icon,{name:'close',size:'m'}),
-                    ' Reset'
+                    React.createElement(Icon,{name:'close',size:'m'})
                 )
             ),
             isMobile&&React.createElement('div',{className:'mobile-panel-actions'},
@@ -8123,10 +8107,10 @@ function App(){
                 )
             ),
             React.createElement('div',{className:'topbar-actions'},
-                React.createElement('button',{className:'top-btn','aria-label':'Analyze Pull Request',onClick:function(){setShowPR(true);},disabled:!data||!!localSourceKind},React.createElement(Icon,{name:'pull-request',size:'m'}),'PR'),
-                React.createElement('button',{className:'top-btn','aria-label':'Export analysis',onClick:function(){setShowExport(true);},disabled:!data},React.createElement(Icon,{name:'export',size:'m'}),'Export'),
-                React.createElement('button',{className:'top-btn','aria-label':'Copy share link',onClick:copyLink,disabled:!data||!!localSourceKind},React.createElement(Icon,{name:'share',size:'m'}),'Share'),
-                React.createElement('button',{className:'top-btn','aria-label':'Toggle theme',onClick:function(){setTheme(function(t){return t==='dark'?'light':'dark';});}},React.createElement(Icon,{name:theme==='dark'?'sun':'moon',size:'m'}),theme==='dark'?'Light':'Dark')
+                React.createElement('button',{className:'top-btn','aria-label':'Analyze Pull Request',title:'Analyze Pull Request',onClick:function(){setShowPR(true);},disabled:!data||!!localSourceKind},React.createElement(Icon,{name:'pull-request',size:'m'}),!data&&'PR'),
+                React.createElement('button',{className:'top-btn','aria-label':'Export analysis',title:'Export analysis',onClick:function(){setShowExport(true);},disabled:!data},React.createElement(Icon,{name:'export',size:'m'}),!data&&'Export'),
+                React.createElement('button',{className:'top-btn','aria-label':'Copy share link',title:'Copy share link',onClick:copyLink,disabled:!data||!!localSourceKind},React.createElement(Icon,{name:'share',size:'m'}),!data&&'Share'),
+                React.createElement('button',{className:'top-btn','aria-label':'Toggle theme',title:theme==='dark'?'Switch to light mode':'Switch to dark mode',onClick:function(){setTheme(function(t){return t==='dark'?'light':'dark';});}},React.createElement(Icon,{name:theme==='dark'?'sun':'moon',size:'m'}),!data&&(theme==='dark'?'Light':'Dark'))
             )
         ),
         React.createElement('div',{className:'main'},
@@ -8213,15 +8197,17 @@ function App(){
                 ):
                 React.createElement(React.Fragment,null,
                     React.createElement('div',{className:'viz-selector'},
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='graph'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'graph'}));}},iconLabel('graph','Graph')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='graph3d'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'graph3d'}));}},iconLabel('globe','3D Graph')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='treemap'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'treemap'}));}},iconLabel('treemap','Treemap')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='matrix'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'matrix'}));}},iconLabel('matrix','Matrix')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='dendro'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'dendro'}));}},iconLabel('tree','Tree')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='sankey'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'sankey'}));}},iconLabel('flow','Flow')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='disjoint'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'disjoint'}));}},iconLabel('cluster','Cluster')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='bundle'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'bundle'}));}},iconLabel('target','Bundle')),
-                        React.createElement('button',{className:'viz-selector-btn'+(graphConfig.vizType==='architecture'?' active':''),onClick:function(){setGraphConfig(Object.assign({},graphConfig,{vizType:'architecture'}));setSelected(null);setBlastRadius(null);}},iconLabel('layers','Block Diagram'))
+                        React.createElement('select',{className:'viz-select','aria-label':'Visualization type',value:graphConfig.vizType,onChange:function(e){var v=e.target.value;setGraphConfig(Object.assign({},graphConfig,{vizType:v}));if(v==='architecture'){setSelected(null);setBlastRadius(null);}}},
+                            React.createElement('option',{value:'graph'},'Graph'),
+                            React.createElement('option',{value:'graph3d'},'3D Graph'),
+                            React.createElement('option',{value:'treemap'},'Treemap'),
+                            React.createElement('option',{value:'matrix'},'Matrix'),
+                            React.createElement('option',{value:'dendro'},'Tree'),
+                            React.createElement('option',{value:'sankey'},'Flow'),
+                            React.createElement('option',{value:'disjoint'},'Cluster'),
+                            React.createElement('option',{value:'bundle'},'Bundle'),
+                            React.createElement('option',{value:'architecture'},'Block Diagram')
+                        )
                     ),
                     graphConfig.vizType==='graph'&&React.createElement('svg',{ref:svgRef}),
                     graphConfig.vizType==='graph3d'&&React.createElement('div',{ref:graph3dRef,className:'graph3d-container',style:{width:'100%',height:'100%'}}),
